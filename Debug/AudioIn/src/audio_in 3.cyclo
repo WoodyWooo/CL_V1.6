@@ -1,0 +1,12 @@
+../AudioIn/src/audio_in.c:110:9:Audio_IN_Timer_Init	4
+../AudioIn/src/audio_in.c:175:9:Audio_IN_ClockConfig	1
+../AudioIn/src/audio_in.c:207:6:Audio_IN_I2S_MspInit	2
+../AudioIn/src/audio_in.c:45:6:Audio_IN_Init	5
+../AudioIn/src/audio_in.c:270:9:Audio_IN_Record	2
+../AudioIn/src/audio_in.c:284:9:Audio_IN_Timer_Start	2
+../AudioIn/src/audio_in.c:300:6:HAL_I2S_RxCpltCallback	7
+../AudioIn/src/audio_in.c:350:6:HAL_I2S_RxHalfCpltCallback	7
+../AudioIn/src/audio_in.c:395:13:BSP_AUDIO_IN_TransferComplete_CallBack	1
+../AudioIn/src/audio_in.c:407:13:BSP_AUDIO_IN_HalfTransfer_CallBack	1
+../AudioIn/src/audio_in.c:419:13:BSP_AUDIO_IN_Error_Callback	1
+../AudioIn/src/audio_in.c:430:6:HAL_I2S_ErrorCallback	2

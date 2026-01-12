@@ -1,0 +1,13 @@
+../AudioOut/src/PCM1774_CODEC_Driver.c:146:7:pcm1774_DeInit	1
+../AudioOut/src/PCM1774_CODEC_Driver.c:156:11:pcm1774_ReadID	1
+../AudioOut/src/PCM1774_CODEC_Driver.c:400:10:pcm1774_SetOutputMode	1
+../AudioOut/src/PCM1774_CODEC_Driver.c:411:10:pcm1774_SetFrequency	1
+../AudioOut/src/PCM1774_CODEC_Driver.c:89:10:pcm1774_Init	12
+../AudioOut/src/PCM1774_CODEC_Driver.c:267:10:pcm1774_SetVolume	2
+../AudioOut/src/PCM1774_CODEC_Driver.c:168:10:pcm1774_Play	4
+../AudioOut/src/PCM1774_CODEC_Driver.c:205:10:pcm1774_Resume	4
+../AudioOut/src/PCM1774_CODEC_Driver.c:236:10:pcm1774_Stop	4
+../AudioOut/src/PCM1774_CODEC_Driver.c:285:10:pcm1774_SetMute	4
+../AudioOut/src/PCM1774_CODEC_Driver.c:195:10:pcm1774_Pause	1
+../AudioOut/src/PCM1774_CODEC_Driver.c:421:10:pcm1774_Reset	1
+../AudioOut/src/PCM1774_CODEC_Driver.c:316:10:pcm1774_PowerDown	10

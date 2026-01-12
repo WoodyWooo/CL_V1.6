@@ -1,0 +1,2 @@
+../Opus/silk/control_codec.c:134:17:silk_setup_resamplers	4
+../Opus/silk/control_codec.c:65:10:silk_control_encoder	25

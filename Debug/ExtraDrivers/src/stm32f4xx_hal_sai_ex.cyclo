@@ -1,0 +1,2 @@
+../ExtraDrivers/src/stm32f4xx_hal_sai_ex.c:114:6:SAI_BlockSynchroConfig	4
+../ExtraDrivers/src/stm32f4xx_hal_sai_ex.c:175:10:SAI_GetInputClock	3

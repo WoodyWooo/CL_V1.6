@@ -1,0 +1,7 @@
+../Opus/celt/celt_decoder.c:220:6:deemphasis	36
+../Opus/celt/celt_decoder.c:323:6:celt_synthesis	20
+../Opus/celt/celt_decoder.c:464:13:celt_decode_lost	48
+../Opus/celt/celt_decoder.c:104:5:celt_decoder_get_size	1
+../Opus/celt/celt_decoder.c:783:5:celt_decode_with_ec	96
+../Opus/celt/celt_decoder.c:1216:5:opus_custom_decoder_ctl	32
+../Opus/celt/celt_decoder.c:136:5:celt_decoder_init	3

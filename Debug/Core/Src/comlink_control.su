@@ -1,0 +1,15 @@
+../Core/Src/comlink_control.c:57:6:Start_Audio_In	8	static
+../Core/Src/comlink_control.c:103:6:SW_IRQ_OpusTasks_Init	8	static
+../Core/Src/comlink_control.c:114:6:SW_OpusTask_Start	0	static
+../Core/Src/comlink_control.c:163:6:Audio_IN_HalfTransfer_CallBack	16	static
+../Core/Src/comlink_control.c:169:6:Audio_IN_TransferComplete_CallBack	16	static
+../Core/Src/comlink_control.c:174:6:Audio_Process	16	static
+../Core/Src/comlink_control.c:200:6:HAL_GPIO_EXTI_Callback	0	static
+../Core/Src/comlink_control.c:320:6:Start_Audio_Out	0	static
+../Core/Src/comlink_control.c:326:6:Stop_Audio_Out	0	static
+../Core/Src/comlink_control.c:331:6:Play_Audio	40	static
+../Core/Src/comlink_control.c:287:6:Write_to_ESP	112	static
+../Core/Src/comlink_control.c:217:9:SpiDataTransfer	40	static
+../Core/Src/comlink_control.c:119:6:SW_OpusTask_Callback	24	static
+../Core/Src/comlink_control.c:382:6:Power_Save	176	static
+../Core/Src/comlink_control.c:63:6:ESP_Process	16	static

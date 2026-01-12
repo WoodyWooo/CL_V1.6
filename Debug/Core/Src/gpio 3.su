@@ -1,0 +1,6 @@
+../Core/Src/gpio.c:43:6:MX_GPIO_Init	64	static
+../Core/Src/gpio.c:124:6:Run_Enable_On	8	static
+../Core/Src/gpio.c:134:9:Off_Sequence	16	static
+../Core/Src/gpio.c:156:6:Toggle_LED	8	static
+../Core/Src/gpio.c:170:6:Off_Sequence_Detect	8	static
+../Core/Src/gpio.c:188:6:HAL_TIM_PeriodElapsedCallback	8	static

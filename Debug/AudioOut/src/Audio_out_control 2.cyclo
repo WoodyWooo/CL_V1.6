@@ -1,0 +1,17 @@
+../AudioOut/src/Audio_out_control.c:75:6:I2C1_MspInit	1
+../AudioOut/src/Audio_out_control.c:54:19:I2C1_Init	2
+../AudioOut/src/Audio_out_control.c:130:9:BSP_AUDIO_OUT_Play	1
+../AudioOut/src/Audio_out_control.c:200:9:BSP_AUDIO_OUT_Pause	1
+../AudioOut/src/Audio_out_control.c:219:9:BSP_AUDIO_OUT_Resume	1
+../AudioOut/src/Audio_out_control.c:235:9:BSP_AUDIO_OUT_Stop	1
+../AudioOut/src/Audio_out_control.c:252:9:BSP_AUDIO_OUT_SetVolume	4
+../AudioOut/src/Audio_out_control.c:288:9:BSP_AUDIO_OUT_SetMute	3
+../AudioOut/src/Audio_out_control.c:323:16:BSP_AUDIO_OUT_ClockConfig	1
+../AudioOut/src/Audio_out_control.c:109:9:BSP_AUDIO_OUT_Init	8
+../AudioOut/src/Audio_out_control.c:360:9:BSP_AUDIO_OUT_SetFrequency	7
+../AudioOut/src/Audio_out_control.c:414:13:BSP_AUDIO_OUT_TransferComplete_CallBack	1
+../AudioOut/src/Audio_out_control.c:382:6:HAL_SAI_TxCpltCallback	1
+../AudioOut/src/Audio_out_control.c:422:13:BSP_AUDIO_OUT_HalfTransfer_CallBack	1
+../AudioOut/src/Audio_out_control.c:393:6:HAL_SAI_TxHalfCpltCallback	1
+../AudioOut/src/Audio_out_control.c:430:13:BSP_AUDIO_OUT_Error_CallBack	1
+../AudioOut/src/Audio_out_control.c:405:6:HAL_SAI_ErrorCallback	1

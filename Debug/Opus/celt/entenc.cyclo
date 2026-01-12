@@ -1,0 +1,10 @@
+../Opus/celt/entenc.c:112:6:ec_enc_init	1
+../Opus/celt/entenc.c:128:6:ec_encode	12
+../Opus/celt/entenc.c:139:6:ec_encode_bin	11
+../Opus/celt/entenc.c:151:6:ec_enc_bit_logp	11
+../Opus/celt/entenc.c:164:6:ec_enc_icdf	10
+../Opus/celt/entenc.c:175:6:ec_enc_uint	7
+../Opus/celt/entenc.c:193:6:ec_enc_bits	6
+../Opus/celt/entenc.c:214:6:ec_enc_patch_initial_bits	4
+../Opus/celt/entenc.c:237:6:ec_enc_shrink	1
+../Opus/celt/entenc.c:244:6:ec_enc_done	26

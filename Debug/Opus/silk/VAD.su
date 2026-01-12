@@ -1,0 +1,2 @@
+../Opus/silk/VAD.c:46:10:silk_VAD_Init	16	static
+../Opus/silk/VAD.c:82:10:silk_VAD_GetSA_Q8_c	128	dynamic,ignoring_inline_asm
