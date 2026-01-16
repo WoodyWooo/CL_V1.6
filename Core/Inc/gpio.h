@@ -48,7 +48,9 @@ extern volatile uint8_t goToStart;
 
 uint8_t On_Off_Sequence(uint8_t NumberOfBlinks);
 void Toggle_LED(void);
-void On_Off_Sequence_Detect(void);
+void Run_Enable_On(void);
+void Off_Sequence_Detect(void);
+uint8_t PB1_LongPress_Detect(uint32_t requiredHighMs);
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

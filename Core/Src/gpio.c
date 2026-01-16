@@ -29,6 +29,7 @@
 #include "ESP_link.h"
 
 #define OFF_LONG_PRESS_TICKS   10U
+#define PB1_WAKE_LONG_PRESS_MS   2000U
 
 extern TIM_HandleTypeDef htim2;
 /* USER CODE END 0 */
@@ -58,8 +59,11 @@ void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
-  __HAL_RCC_GPIOD_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+  __HAL_RCC_GPIOD_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(RUN_3V3_GPIO_Port, RUN_3V3_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(STATUS_LED_GPIO_Port, STATUS_LED_Pin, GPIO_PIN_RESET);
@@ -84,6 +88,13 @@ void MX_GPIO_Init(void)
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(PB_2_INPUT_GPIO_Port, &GPIO_InitStruct);
+
+  /*Configure GPIO pin : RUN_3V3_Pin */
+  GPIO_InitStruct.Pin = RUN_3V3_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(RUN_3V3_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PC9 */
   GPIO_InitStruct.Pin = GPIO_PIN_9;
@@ -127,46 +138,25 @@ void MX_GPIO_Init(void)
 /* USER CODE BEGIN 2 */
 
 //Blink LED and then open circuit to battery
-uint8_t onOffDelay = 0;
-uint8_t On_Off_Sequence(uint8_t NumberOfBlinks)
+uint8_t offDelay = 0;
+uint8_t Off_Sequence(uint8_t NumberOfBlinks)
 {
-	//Disable and DeInit ESP_F446_IRQ_Pin to use PA0 as Wakeup1. Only PA0 can wake from Standby
-	/*HAL_NVIC_DisableIRQ(EXTI0_IRQn);
-	__HAL_GPIO_EXTI_CLEAR_IT(ESP_F446_IRQ_Pin);
-	HAL_GPIO_DeInit(ESP_F446_IRQ_GPIO_Port, ESP_F446_IRQ_Pin);*/
-
-	/*if (onOffDelay == 0)
+	if (offDelay == 0)
 	{
 		__HAL_TIM_SET_AUTORELOAD(&htim2, 10000);
 		HAL_TIM_Base_Start_IT(&htim2);
 	}
 
 	Toggle_LED();
-	onOffDelay++;
+	offDelay++;
 
-	if(onOffDelay == NumberOfBlinks)
+	if(offDelay == NumberOfBlinks)
 	{
 
-		goToStop = 1;
-		onOffDelay = 0;
+		HAL_GPIO_WritePin(RUN_3V3_GPIO_Port, RUN_3V3_Pin, GPIO_PIN_RESET);
 	}
 
-	return onOffDelay;*/
-
-
-	// One blink step every TIM2 period
-	Toggle_LED();
-	onOffDelay++;
-
-	if (onOffDelay >= NumberOfBlinks)
-	{
-		// Done blinking – request STOP and reset state
-		HAL_TIM_Base_Stop_IT(&htim2);
-		onOffDelay   = 0;
-		goToStop     = 1;
-		gPowerState  = POWER_STATE_OFF;
-	}
-
+	return offDelay;
 
 }
 
@@ -184,10 +174,18 @@ void Toggle_LED(void)
 
 }
 
-void On_Off_Sequence_Detect(void)
+void Run_Enable_On(void)
+{
+	HAL_Delay(2000);
+	HAL_GPIO_WritePin(GPIOA, STATUS_LED_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(RUN_3V3_GPIO_Port, RUN_3V3_Pin, GPIO_PIN_SET);
+
+}
+
+void Off_Sequence_Detect(void)
 {
 
-	/*if((HAL_GPIO_ReadPin(PB_1_INPUT_GPIO_Port, PB_1_INPUT_Pin)) == GPIO_PIN_SET)
+	if((HAL_GPIO_ReadPin(PB_1_INPUT_GPIO_Port, PB_1_INPUT_Pin)) == GPIO_PIN_SET)
 	{
 		TIM2->CNT = 0;
 		HAL_TIM_Base_Start_IT(&htim2);
@@ -195,40 +193,42 @@ void On_Off_Sequence_Detect(void)
 	}
 	if((HAL_GPIO_ReadPin(PB_1_INPUT_GPIO_Port, PB_1_INPUT_Pin)) == GPIO_PIN_RESET)
 	{
-		if (onOffDelay == 0)
+		if (offDelay == 0)
 			HAL_TIM_Base_Stop(&htim2);
-	}*/
-
-	GPIO_PinState pin = HAL_GPIO_ReadPin(PB_1_INPUT_GPIO_Port, PB_1_INPUT_Pin);
-
-	if (pin == GPIO_PIN_SET)
-	{
-		// Button pressed
-		if (gPowerState == POWER_STATE_ON && onOffDelay == 0)
-		{
-			// Start measuring long press to turn OFF
-			TIM2->CNT = 0;
-			__HAL_TIM_SET_AUTORELOAD(&htim2, 10000);      // Your existing period
-			HAL_TIM_Base_Start_IT(&htim2);
-		}
 	}
-	else // pin == GPIO_PIN_RESET
-	{
-		// Button released
-		if (gPowerState == POWER_STATE_ON)
-		{
-			// If timer has not yet ticked, cancel (short tap)
-			if (onOffDelay == 0)
-			{
-				HAL_TIM_Base_Stop_IT(&htim2);
-			}
-			// If onOffDelay > 0, we let the sequence finish in the timer callback.
-		}
-	}
-
 
 }
 
+uint8_t PB1_LongPress_Detect(uint32_t requiredHighMs)
+{
+	uint32_t tStart;
+
+	tStart = HAL_GetTick();
+
+	// Stay here while button is held high and watch the time
+	while (HAL_GPIO_ReadPin(PB_1_INPUT_GPIO_Port, PB_1_INPUT_Pin) == GPIO_PIN_SET)
+	{
+		if ((HAL_GetTick() - tStart) >= requiredHighMs)
+		{
+			// Held high long enough – valid wake
+			return 1;
+		}
+	}
+
+	// Released before requiredHighMs – treat as short press
+	return 0;
+}
+
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	if (htim->Instance == TIM2)
+	{
+		   Off_Sequence(6);
+	}
+}
+
+/* USER CODE END 2 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
 	if (htim->Instance == TIM2)

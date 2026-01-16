@@ -38,8 +38,6 @@
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
-// Require PB_1_INPUT to be high for this long to wake fully (ms)
-#define PB1_WAKE_LONG_PRESS_MS   2000U
 
 /* USER CODE END PTD */
 
@@ -65,8 +63,7 @@ extern volatile PowerState_t gPowerState;   // from gpio.c
 void SystemClock_Config(void);
 void PeriphCommonClock_Config(void);
 /* USER CODE BEGIN PFP */
-static void Enter_Stop_Mode(void);
-static uint8_t PB1_Wakeup_LongPress_Detected(uint32_t requiredHighMs);
+
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -112,18 +109,8 @@ int main(void)
   MX_RTC_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-  /*__HAL_RCC_PWR_CLK_ENABLE();
-
-  if (__HAL_PWR_GET_FLAG(PWR_FLAG_SB) != RESET)
-  {
-	  for(int i=0; i<10; i++)
-	  {
-		  HAL_GPIO_TogglePin(STATUS_LED_GPIO_Port, STATUS_LED_Pin);
-		  HAL_Delay(200);
-	  }
-  }*/
-
-  //HAL_PWR_DisableWakeUpPin(PWR_WAKEUP_PIN1);
+  //Wait to see if the button is held long enout to turn on
+  Run_Enable_On();
 
   TIM2->SR = 0;   // Set tim2 Status Register to 0 to avoid immediate IRQ
 
@@ -152,11 +139,6 @@ int main(void)
   {
 	  ESP_Process();
 
-	  if (goToStop)
-	  {
-		  Enter_Stop_Mode();
-		  goToStop=0;
-	  }
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -238,23 +220,41 @@ void PeriphCommonClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
-static void Enter_Stop_Mode(void)
+
+/* USER CODE END 4 */
+
+/**
+  * @brief  This function is executed in case of error occurrence.
+  * @retval None
+  */
+void Error_Handler(void)
 {
-	/*__HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
-	HAL_GPIO_WritePin(ESP_RESET_PORT, ESP_RESET_PIN, GPIO_PIN_RESET);
-	HAL_SuspendTick();
-	HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_SLEEPENTRY_WFI);
-	HAL_ResumeTick();
-	SystemClock_Config();
-	PeriphCommonClock_Config();
-	TIM2->SR = 0;
-	ESP_RST();*/
-
-	gPowerState = POWER_STATE_OFF;
-
-	    while (1)
-	    {
-	        __HAL_PWR_CLEAR_FLAG(PWR_FLAG_WU);
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
+  __disable_irq();
+  while (1)
+  {
+	  Toggle_LED();
+	  HAL_Delay(500);
+  }
+  /* USER CODE END Error_Handler_Debug */
+}
+#ifdef USE_FULL_ASSERT
+/**
+  * @brief  Reports the name of the source file and the source line number
+  *         where the assert_param error has occurred.
+  * @param  file: pointer to the source file name
+  * @param  line: assert_param error line source number
+  * @retval None
+  */
+void assert_failed(uint8_t *file, uint32_t line)
+{
+  /* USER CODE BEGIN 6 */
+  /* User can add his own implementation to report the file name and line number,
+     ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
+  /* USER CODE END 6 */
+}
+#endif /* USE_FULL_ASSERT */
 	        HAL_GPIO_WritePin(ESP_RESET_PORT, ESP_RESET_PIN, GPIO_PIN_RESET);
 	        pcm1774_PowerDown(PCM1774_X_0_handle);
 
