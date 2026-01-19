@@ -1,21 +1,2 @@
-# Build output
-Debug/
-Release/
 
-# Object and dependency files
-**/*.o
-**/*.d
-**/*.su
-**/*.cyclo
-
-# Generated makefiles
-**/subdir.mk
-**/makefile
-
-# macOS
-.DS_Store
-
-# Eclipse / STM32CubeIDE
-.cproject
-.settings/
 
