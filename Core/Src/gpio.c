@@ -229,12 +229,3 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 }
 
 /* USER CODE END 2 */
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	if (htim->Instance == TIM2)
-	{
-		On_Off_Sequence(10);
-	}
-}
-
-/* USER CODE END 2 */

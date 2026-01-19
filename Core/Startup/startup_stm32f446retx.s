@@ -59,9 +59,9 @@ defined in linker script */
   .type  Reset_Handler, %function
 Reset_Handler:  
   ldr   sp, =_estack      /* set stack pointer */
-
+  
 /* Call the clock system initialization function.*/
-  bl  SystemInit
+  bl  SystemInit  
 
 /* Copy the data segment initializers from flash to SRAM */  
   ldr r0, =_sdata
@@ -79,7 +79,7 @@ LoopCopyDataInit:
   adds r4, r0, r3
   cmp r4, r1
   bcc CopyDataInit
-
+  
 /* Zero fill the bss segment. */
   ldr r2, =_sbss
   ldr r4, =_ebss
@@ -93,7 +93,7 @@ FillZerobss:
 LoopFillZerobss:
   cmp r2, r4
   bcc FillZerobss
-
+  
 /* Call static constructors */
     bl __libc_init_array
 /* Call the application's entry point.*/
@@ -531,8 +531,8 @@ g_pfnVectors:
    .weak      SPDIF_RX_IRQHandler            
    .thumb_set SPDIF_RX_IRQHandler,Default_Handler 
  
-   .weak      FMPI2C1_EV_IRQHandler
+   .weak      FMPI2C1_EV_IRQHandler            
    .thumb_set FMPI2C1_EV_IRQHandler,Default_Handler
    
-   .weak      FMPI2C1_ER_IRQHandler
-   .thumb_set FMPI2C1_ER_IRQHandler,Default_Handler
+   .weak      FMPI2C1_ER_IRQHandler            
+   .thumb_set FMPI2C1_ER_IRQHandler,Default_Handler 
