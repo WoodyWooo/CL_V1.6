@@ -1,4 +1,0 @@
-../ESP32/src/ESP_link.c:16:6:ESP_SPI_Init	16	static
-../ESP32/src/ESP_link.c:36:6:HAL_SPI_MspInit	72	static
-../ESP32/src/ESP_link.c:121:10:ESP_RST	8	static
-../ESP32/src/ESP_link.c:145:9:ESP_SPI_Ready	8	static

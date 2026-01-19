@@ -1,2 +1,0 @@
-../Opus/silk/control_codec.c:134:17:silk_setup_resamplers	352	dynamic
-../Opus/silk/control_codec.c:65:10:silk_control_encoder	48	static,ignoring_inline_asm

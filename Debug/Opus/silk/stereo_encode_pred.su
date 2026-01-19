@@ -1,2 +1,0 @@
-../Opus/silk/stereo_encode_pred.c:35:6:silk_stereo_encode_pred	24	static
-../Opus/silk/stereo_encode_pred.c:55:6:silk_stereo_encode_mid_only	0	static

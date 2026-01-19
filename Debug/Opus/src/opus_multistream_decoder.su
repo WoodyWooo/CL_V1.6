@@ -1,7 +1,0 @@
-../Opus/src/opus_multistream_decoder.c:50:12:opus_multistream_decoder_get_size	16	static
-../Opus/src/opus_multistream_decoder.c:63:5:opus_multistream_decoder_init	32	static
-../Opus/src/opus_multistream_decoder.c:110:16:opus_multistream_decoder_create	40	static
-../Opus/src/opus_multistream_decoder.c:411:5:opus_multistream_decoder_ctl	44	static
-../Opus/src/opus_multistream_decoder.c:366:5:opus_multistream_decode	216	dynamic
-../Opus/src/opus_multistream_decoder.c:380:5:opus_multistream_decode_float	224	dynamic
-../Opus/src/opus_multistream_decoder.c:537:6:opus_multistream_decoder_destroy	0	static

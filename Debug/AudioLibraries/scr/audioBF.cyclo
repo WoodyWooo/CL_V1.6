@@ -1,7 +1,0 @@
-../AudioLibraries/scr/audioBF.c:21:6:BF_Init	4
-../AudioLibraries/scr/audioBF.c:69:9:AUDIO_IN_PDM_To_BFPCM	3
-../AudioLibraries/scr/audioBF.c:103:6:SW_IRQ_BF_Tasks_Init	1
-../AudioLibraries/scr/audioBF.c:113:6:SW_Task1_Callback	1
-../AudioLibraries/scr/audioBF.c:123:6:SW_Task1_Start	1
-../AudioLibraries/scr/audioBF.c:128:6:EXTI2_IRQHandler	1
-../AudioLibraries/scr/audioBF.c:137:6:SW_Task2_Start	1

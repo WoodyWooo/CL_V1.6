@@ -1,3 +1,0 @@
-../Opus/silk/enc_API.c:56:10:silk_Get_Encoder_Size	0	static
-../Opus/silk/enc_API.c:70:10:silk_InitEncoder	32	static
-../Opus/silk/enc_API.c:140:10:silk_Encode	176	dynamic,ignoring_inline_asm

@@ -1,2 +1,0 @@
-../Opus/celt/cwrs.c:458:6:encode_pulses	28	static
-../Opus/celt/cwrs.c:539:12:decode_pulses	56	static
