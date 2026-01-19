@@ -1,0 +1,10 @@
+../Opus/celt/vq.c:43:13:exp_rotation1	32	static
+../Opus/celt/vq.c:43:13:exp_rotation1.constprop	28	static
+../Opus/celt/vq.c:139:17:extract_collapse_mask	56	static
+../Opus/celt/vq.c:70:6:exp_rotation.part.0.constprop	40	static
+../Opus/celt/vq.c:70:6:exp_rotation	56	static
+../Opus/celt/vq.c:161:12:op_pvq_search_c	80	dynamic,ignoring_inline_asm
+../Opus/celt/vq.c:326:10:alg_quant	88	dynamic
+../Opus/celt/vq.c:359:10:alg_unquant	48	dynamic
+../Opus/celt/vq.c:379:6:renormalise_vector	24	static
+../Opus/celt/vq.c:406:5:stereo_itheta	16	static

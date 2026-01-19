@@ -1,0 +1,7 @@
+../Opus/src/analysis.c:111:19:silk_resampler_down2_hp	3
+../Opus/src/analysis.c:159:19:downmix_and_resample	12
+../Opus/src/analysis.c:315:13:tonality_analysis.isra	91
+../Opus/src/analysis.c:213:6:tonality_analysis_init	1
+../Opus/src/analysis.c:222:6:tonality_analysis_reset	1
+../Opus/src/analysis.c:231:6:tonality_get_info	32
+../Opus/src/analysis.c:911:6:run_analysis	4

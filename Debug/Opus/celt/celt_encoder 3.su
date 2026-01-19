@@ -1,0 +1,7 @@
+../Opus/celt/celt_encoder.c:444:13:compute_mdcts	96	static
+../Opus/celt/celt_encoder.c:578:12:tf_analysis	136	dynamic,ignoring_inline_asm
+../Opus/celt/celt_encoder.c:130:5:celt_encoder_get_size	8	static
+../Opus/celt/celt_encoder.c:490:6:celt_preemphasis	40	static
+../Opus/celt/celt_encoder.c:1349:5:celt_encode_with_ec	520	dynamic,ignoring_inline_asm
+../Opus/celt/celt_encoder.c:2339:5:opus_custom_encoder_ctl	36	static
+../Opus/celt/celt_encoder.c:207:5:celt_encoder_init	24	static

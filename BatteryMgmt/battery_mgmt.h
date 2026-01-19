@@ -10,6 +10,7 @@
 
 #include "stdint.h"
 
+void ADC1_ConfigChannel_VBAT(void);
 uint8_t Get_Battery_Volt(void);
 
 

@@ -51,7 +51,7 @@ uint8_t newDataAvailable = 0;
 uint8_t ESP_Ready = 0;
 uint8_t OpusEncBuf[PAYLOAD_SIZE];
 uint8_t espSleep =100;
-uint8_t readBattVolt = 0;
+uint8_t readBattVolt = 1;
 uint8_t batV = 0;
 
 void Start_Audio_In(void)

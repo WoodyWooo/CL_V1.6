@@ -1,0 +1,16 @@
+../Core/Src/comlink_control.c:303:6:Play_Audio.part.0	7
+../Core/Src/comlink_control.c:51:6:Start_Audio_In	1
+../Core/Src/comlink_control.c:97:6:SW_IRQ_OpusTasks_Init	1
+../Core/Src/comlink_control.c:108:6:SW_OpusTask_Start	1
+../Core/Src/comlink_control.c:146:6:Audio_IN_HalfTransfer_CallBack	2
+../Core/Src/comlink_control.c:152:6:Audio_IN_TransferComplete_CallBack	2
+../Core/Src/comlink_control.c:157:6:Audio_Process	2
+../Core/Src/comlink_control.c:184:6:HAL_GPIO_EXTI_Callback	3
+../Core/Src/comlink_control.c:267:6:Write_to_ESP	3
+../Core/Src/comlink_control.c:201:9:BluevoiceOPUS_SendAudioData	7
+../Core/Src/comlink_control.c:113:6:SW_OpusTask_Callback	3
+../Core/Src/comlink_control.c:292:6:Start_Audio_Out	1
+../Core/Src/comlink_control.c:298:6:Stop_Audio_Out	1
+../Core/Src/comlink_control.c:303:6:Play_Audio	2
+../Core/Src/comlink_control.c:360:6:Power_Save	2
+../Core/Src/comlink_control.c:57:6:ESP_Process	7

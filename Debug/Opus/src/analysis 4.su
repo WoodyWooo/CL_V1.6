@@ -1,0 +1,7 @@
+../Opus/src/analysis.c:111:19:silk_resampler_down2_hp	48	static,ignoring_inline_asm
+../Opus/src/analysis.c:159:19:downmix_and_resample	56	dynamic
+../Opus/src/analysis.c:315:13:tonality_analysis.isra	11320	static
+../Opus/src/analysis.c:213:6:tonality_analysis_init	8	static
+../Opus/src/analysis.c:222:6:tonality_analysis_reset	8	static
+../Opus/src/analysis.c:231:6:tonality_get_info	32	static
+../Opus/src/analysis.c:911:6:run_analysis	96	static
