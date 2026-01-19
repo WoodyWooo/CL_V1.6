@@ -10,9 +10,21 @@ RM := rm -rf
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include PDM2PCM/App/subdir.mk
+-include OpusCmds/src/subdir.mk
+-include Opus/src/subdir.mk
+-include Opus/silk/fixed/subdir.mk
+-include Opus/silk/arm/subdir.mk
+-include Opus/silk/subdir.mk
+-include Opus/celt/subdir.mk
+-include ExtraDrivers/src/subdir.mk
+-include ESP32/src/subdir.mk
 -include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
+-include BatteryMgmt/subdir.mk
+-include AudioOut/src/subdir.mk
+-include AudioLibraries/scr/subdir.mk
+-include AudioIn/src/subdir.mk
 -include objects.mk
 
 ifneq ($(MAKECMDGOALS),clean)
@@ -53,6 +65,9 @@ default.size.stdout \
 OBJDUMP_LIST += \
 CL_V1.6.list \
 
+OBJCOPY_BIN += \
+CL_V1.6.bin \
+
 
 # All Target
 all: main-build
@@ -62,7 +77,7 @@ main-build: CL_V1.6.elf secondary-outputs
 
 # Tool invocations
 CL_V1.6.elf CL_V1.6.map: $(OBJS) $(USER_OBJS) /Users/elecinnov2/Documents/ST_Workspaces/ComLinkV1.6/CL_V1.6/STM32F446RETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "CL_V1.6.elf" @"objects.list" $(USER_OBJS) -Wl,--start-group $(LIBS) -Wl,--end-group -mcpu=cortex-m4 -T"/Users/elecinnov2/Documents/ST_Workspaces/ComLinkV1.6/CL_V1.6/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CL_V1.6.map" -Wl,--gc-sections -static -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+	arm-none-eabi-gcc -o "CL_V1.6.elf" @"objects.list" $(USER_OBJS) -Wl,--start-group $(LIBS) -Wl,--end-group -mcpu=cortex-m4 -T"/Users/elecinnov2/Documents/ST_Workspaces/ComLinkV1.6/CL_V1.6/STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="CL_V1.6.map" -Wl,--gc-sections -static -L../Middlewares/ST/STM32_Audio/Addons/PDM/Lib -L../AudioLibraries/libs/STM32_AcousticBF_Library/Lib -L../AudioLibraries/libs/SDR/Lib --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -76,12 +91,17 @@ CL_V1.6.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
+CL_V1.6.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objcopy  -O binary $(EXECUTABLES) "CL_V1.6.bin"
+	@echo 'Finished building: $@'
+	@echo ' '
+
 # Other Targets
 clean:
-	-$(RM) CL_V1.6.elf CL_V1.6.list CL_V1.6.map default.size.stdout
+	-$(RM) CL_V1.6.bin CL_V1.6.elf CL_V1.6.list CL_V1.6.map default.size.stdout
 	-@echo ' '
 
-secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
+secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
 
 fail-specified-linker-script-missing:
 	@echo 'Error: Cannot find the specified linker script. Check the linker settings in the build configuration.'

@@ -19,11 +19,24 @@ MAP_FILES :=
 S_DEPS := 
 S_UPPER_DEPS := 
 C_DEPS := 
+OBJCOPY_BIN := 
 
 # Every subdirectory with source files must be described here
 SUBDIRS := \
+AudioIn/src \
+AudioLibraries/scr \
+AudioOut/src \
+BatteryMgmt \
 Core/Src \
 Core/Startup \
 Drivers/STM32F4xx_HAL_Driver/Src \
+ESP32/src \
+ExtraDrivers/src \
+Opus/celt \
+Opus/silk \
+Opus/silk/arm \
+Opus/silk/fixed \
+Opus/src \
+OpusCmds/src \
 PDM2PCM/App \
 
