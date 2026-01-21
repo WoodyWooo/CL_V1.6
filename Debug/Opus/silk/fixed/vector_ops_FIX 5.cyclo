@@ -1,0 +1,4 @@
+../Opus/silk/fixed/vector_ops_FIX.c:36:6:silk_scale_copy_vector16	3
+../Opus/silk/fixed/vector_ops_FIX.c:53:6:silk_scale_vector32_Q26_lshift_18	3
+../Opus/silk/fixed/vector_ops_FIX.c:71:12:silk_inner_prod_aligned	3
+../Opus/silk/fixed/vector_ops_FIX.c:90:12:silk_inner_prod16_aligned_64_c	3

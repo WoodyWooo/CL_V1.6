@@ -1,0 +1,2 @@
+../BatteryMgmt/battery_mgmt.c:12:6:ADC1_ConfigChannel_VBAT	1
+../BatteryMgmt/battery_mgmt.c:26:9:Get_Battery_Volt	1

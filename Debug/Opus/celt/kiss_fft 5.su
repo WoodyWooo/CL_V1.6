@@ -1,0 +1,3 @@
+../Opus/celt/kiss_fft.c:521:6:opus_fft_impl	184	static,ignoring_inline_asm
+../Opus/celt/kiss_fft.c:569:6:opus_fft_c	32	static,ignoring_inline_asm
+../Opus/celt/kiss_fft.c:592:6:opus_ifft_c	24	static

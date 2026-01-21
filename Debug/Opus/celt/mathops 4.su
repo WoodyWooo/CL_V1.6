@@ -1,0 +1,6 @@
+../Opus/celt/mathops.c:42:10:isqrt32	8	static
+../Opus/celt/mathops.c:69:12:frac_div32	12	static,ignoring_inline_asm
+../Opus/celt/mathops.c:90:12:celt_rsqrt_norm	0	static
+../Opus/celt/mathops.c:118:12:celt_sqrt	0	static
+../Opus/celt/mathops.c:156:12:celt_cos_norm	0	static
+../Opus/celt/mathops.c:180:12:celt_rcp	4	static

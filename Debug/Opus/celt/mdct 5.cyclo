@@ -1,0 +1,2 @@
+../Opus/celt/mdct.c:119:6:clt_mdct_forward_c	12
+../Opus/celt/mdct.c:242:6:clt_mdct_backward_c	8

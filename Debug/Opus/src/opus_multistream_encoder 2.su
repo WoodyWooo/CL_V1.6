@@ -1,0 +1,15 @@
+../Opus/src/opus_multistream_encoder.c:1123:13:opus_copy_channel_in_short	12	static
+../Opus/src/opus_multistream_encoder.c:1102:13:opus_copy_channel_in_float	48	static
+../Opus/src/opus_multistream_encoder.c:462:12:opus_multistream_encoder_init_impl	48	static
+../Opus/src/opus_multistream_encoder.c:255:6:surround_analysis	464	dynamic
+../Opus/src/opus_multistream_encoder.c:887:12:opus_multistream_encode_native.constprop	9224	dynamic
+../Opus/src/opus_multistream_encoder.c:407:12:opus_multistream_encoder_get_size	16	static
+../Opus/src/opus_multistream_encoder.c:420:12:opus_multistream_surround_encoder_get_size	24	static
+../Opus/src/opus_multistream_encoder.c:532:5:opus_multistream_encoder_init	24	static
+../Opus/src/opus_multistream_encoder.c:547:5:opus_multistream_surround_encoder_init	40	static
+../Opus/src/opus_multistream_encoder.c:624:16:opus_multistream_encoder_create	48	static
+../Opus/src/opus_multistream_encoder.c:661:16:opus_multistream_surround_encoder_create	56	static
+../Opus/src/opus_multistream_encoder.c:1145:5:opus_multistream_encode	24	static
+../Opus/src/opus_multistream_encoder.c:1158:5:opus_multistream_encode_float	24	static
+../Opus/src/opus_multistream_encoder.c:1199:5:opus_multistream_encoder_ctl	44	static
+../Opus/src/opus_multistream_encoder.c:1403:6:opus_multistream_encoder_destroy	0	static
