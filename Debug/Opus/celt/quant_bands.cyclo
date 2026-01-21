@@ -1,8 +1,0 @@
-../Opus/celt/quant_bands.c:156:12:quant_coarse_energy_impl	31
-../Opus/celt/quant_bands.c:261:6:quant_coarse_energy	14
-../Opus/celt/quant_bands.c:361:6:quant_fine_energy	5
-../Opus/celt/quant_bands.c:398:6:quant_energy_finalise	11
-../Opus/celt/quant_bands.c:428:6:unquant_coarse_energy	13
-../Opus/celt/quant_bands.c:493:6:unquant_fine_energy	5
-../Opus/celt/quant_bands.c:516:6:unquant_energy_finalise	11
-../Opus/celt/quant_bands.c:544:6:amp2Log2	12

@@ -1,3 +1,0 @@
-../Opus/silk/sort.c:40:6:silk_insertion_sort_increasing	13
-../Opus/silk/sort.c:88:6:silk_insertion_sort_decreasing_int16	13
-../Opus/silk/sort.c:135:6:silk_insertion_sort_increasing_all_values_int16	5

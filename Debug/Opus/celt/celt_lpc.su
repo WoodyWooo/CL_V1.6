@@ -1,4 +1,0 @@
-../Opus/celt/celt_lpc.c:37:6:_celt_lpc	144	static
-../Opus/celt/celt_lpc.c:91:6:celt_fir_c	120	dynamic
-../Opus/celt/celt_lpc.c:129:6:celt_iir	136	dynamic
-../Opus/celt/celt_lpc.c:210:5:_celt_autocorr	72	dynamic

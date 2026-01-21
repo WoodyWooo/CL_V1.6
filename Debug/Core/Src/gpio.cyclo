@@ -1,7 +1,0 @@
-../Core/Src/gpio.c:54:6:MX_GPIO_Init	1
-../Core/Src/gpio.c:142:9:Off_Sequence	5
-../Core/Src/gpio.c:163:6:Toggle_LED	3
-../Core/Src/gpio.c:177:6:Run_Enable_On	1
-../Core/Src/gpio.c:185:6:Off_Sequence_Detect	3
-../Core/Src/gpio.c:202:9:PB1_LongPress_Detect	3
-../Core/Src/gpio.c:223:6:HAL_TIM_PeriodElapsedCallback	2

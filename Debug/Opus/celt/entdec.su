@@ -1,8 +1,0 @@
-../Opus/celt/entdec.c:119:6:ec_dec_init	16	static
-../Opus/celt/entdec.c:142:10:ec_decode	4	static
-../Opus/celt/entdec.c:149:10:ec_decode_bin	0	static
-../Opus/celt/entdec.c:156:6:ec_dec_update	20	static
-../Opus/celt/entdec.c:165:5:ec_dec_bit_logp	24	static
-../Opus/celt/entdec.c:180:5:ec_dec_icdf	28	static
-../Opus/celt/entdec.c:201:13:ec_dec_uint	36	static
-../Opus/celt/entdec.c:228:13:ec_dec_bits	16	static

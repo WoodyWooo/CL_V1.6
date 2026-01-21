@@ -1,6 +1,0 @@
-../Opus/celt/mathops.c:42:10:isqrt32	32
-../Opus/celt/mathops.c:69:12:frac_div32	6
-../Opus/celt/mathops.c:90:12:celt_rsqrt_norm	1
-../Opus/celt/mathops.c:118:12:celt_sqrt	5
-../Opus/celt/mathops.c:156:12:celt_cos_norm	8
-../Opus/celt/mathops.c:180:12:celt_rcp	3

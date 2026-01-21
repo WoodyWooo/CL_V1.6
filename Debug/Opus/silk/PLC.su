@@ -1,3 +1,0 @@
-../Opus/silk/PLC.c:54:6:silk_PLC_Reset	4	static
-../Opus/silk/PLC.c:65:6:silk_PLC	216	dynamic,ignoring_inline_asm
-../Opus/silk/PLC.c:392:6:silk_PLC_glue_frames	32	static,ignoring_inline_asm
